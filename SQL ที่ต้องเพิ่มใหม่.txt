@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS `team_captain` (
+  `user_id` int(11) NOT NULL,
+  `player_id` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `team_records` (
+  `record_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL COMMENT 'ชื่อสถิติ เช่น ยิงเร็วที่สุด',
+  `player_name` varchar(255) NOT NULL,
+  `record_value` varchar(255) NOT NULL COMMENT 'ค่าสถิติ เช่น 12 วินาที',
+  `description` text DEFAULT NULL COMMENT 'รายละเอียดเพิ่มเติม',
+  PRIMARY KEY (`record_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE `users`
+  ADD UNIQUE KEY `uq_username` (`username`);
